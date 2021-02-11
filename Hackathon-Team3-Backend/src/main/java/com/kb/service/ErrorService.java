@@ -41,6 +41,12 @@ public class ErrorService
 		return eR.findById(id).get();
 	}
 	
+	public List<Errors> getAllErrorsByUserName(String un)
+	{
+		
+		return eR.findAllByUserName(un);
+	}
+	
 	
 	
 	

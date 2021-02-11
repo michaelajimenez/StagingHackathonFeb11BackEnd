@@ -34,6 +34,12 @@ public class ErrorsController
 		return new ResponseEntity<List<Errors>>(eServ.getAllErrors(), HttpStatus.OK);
 	}
 	
+	@GetMapping(path="/getErrorsByName")
+	public ResponseEntity<List<Errors>> getAllErrorsByUser(@RequestBody String un)
+	{
+		return new ResponseEntity<List<Errors>>(eServ.getAllErrorsByUserName(un), HttpStatus.OK);
+	}
+	
 	@PostMapping(path="/saveErrors")
 	public ResponseEntity<String> saveError(@RequestBody Errors er)
 	{
