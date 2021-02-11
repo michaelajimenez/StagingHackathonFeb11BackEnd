@@ -17,7 +17,7 @@ public class Errors
 	@Column(name = "errorID") 
 	private int errorID;
 	
-	@Column(name = "description")
+	@Column(name = "description", nullable = false)
 	private String description;
 	
 	@Column(name = "solution")
@@ -29,17 +29,21 @@ public class Errors
 	@Column(name = "submitterLastName")
 	private String submitterLastName;
 	
+	@Column(name = "user_name")
+	private String userName;
+	
 	public Errors() 
 	{
 		
 	}
 	
-	public Errors(String description, String solution, String submitterFirstName, String submitterLastName) {
+	public Errors(String description, String solution, String submitterFirstName, String submitterLastName, String userName) {
 		super();
 		this.description = description;
 		this.solution = solution;
 		this.submitterFirstName = submitterFirstName;
 		this.submitterLastName = submitterLastName;
+		this.userName = userName;
 	}
 
 
@@ -85,15 +89,25 @@ public class Errors
 	public void setSubmitterLastName(String submitterLastName) {
 		this.submitterLastName = submitterLastName;
 	}
+	
 
+	public String getUserName() {
+		return userName;
+	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	@Override
-	public String toString() 
-	{
-		return "Error [errorID=" + errorID + ", description=" + description + ", solution=" + solution
-				+ ", submitterFirstName=" + submitterFirstName + ", submitterLastName=" + submitterLastName + "]";
+	public String toString() {
+		return "Errors [errorID=" + errorID + ", description=" + description + ", solution=" + solution
+				+ ", submitterFirstName=" + submitterFirstName + ", submitterLastName=" + submitterLastName
+				+ ", userName=" + userName + "]";
 	}
+
+
+
 	
 	
 	

@@ -1,16 +1,21 @@
 server:
-  port: 7679
+  port: 7654
   
 
 spring:
   datasource:
-    url: ${REVATURE_DB_URL}ChallengeDB
-    password: ${REVATURE_DB_PASSWORD}
-    username: ${REVATURE_DB_USERNAME}
+    url: ${KB-URL} #jdbc:postgresql://bugtracker.cswyjzeukubl.us-east-2.rds.amazonaws.com/postgres 
+    password: ${Password} 
+    username: ${Login} 
     driver-class-name: org.postgresql.Driver
+    #url: jdbc:h2:./src/main/resources/h2/data;MODE=PostgreSQL
+    #username: sa
+    #password: sa
+    #driver-class-name: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: false
+    #database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
     hibernate:
       ddl-auto: create
     properties:
