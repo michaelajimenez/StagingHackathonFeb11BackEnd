@@ -43,8 +43,14 @@ public class ErrorsController
 	@PostMapping(path="/saveErrors")
 	public ResponseEntity<String> saveError(@RequestBody Errors er)
 	{
-		eServ.save(er);
-		return new ResponseEntity<String>("Error saved to database", HttpStatus.CREATED);
+		if(eServ.save(er))
+		{
+			return new ResponseEntity<String>("Error saved to database", HttpStatus.CREATED);
+		}
+		else
+		{
+			return new ResponseEntity<String>("Error was not saved to the database", HttpStatus.BAD_REQUEST);
+		}
 		
 	}
 	
