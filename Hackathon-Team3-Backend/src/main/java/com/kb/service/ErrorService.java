@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 import com.kb.dao.ErrorRepo;
 import com.kb.models.Errors;
 
-
+/**
+ * Serivce for the Errors model.
+ * @author Albert
+ *
+ */
 @Service
 public class ErrorService 
 {
@@ -26,21 +30,53 @@ public class ErrorService
 		this.eR = eR;
 	}
 	
-	public void save(Errors er)
+	/**
+	 * Inserts a bug into the database
+	 * @param er
+	 * @return true if the save method returns the object
+	 */
+	public boolean save(Errors er)
 	{
-		eR.save(er);
+		
+		try
+		{
+			Errors insertedBug = eR.save(er);
+			return true;
+		}
+		catch(IllegalArgumentException e)
+		{
+			System.out.println("Bug save failed.");
+			e.printStackTrace();
+			return false;
+		}
+		
+		
 	}
 	
+	/**
+	 * Gets all the bugs in the system
+	 * @return a list of bugs
+	 */
 	public List<Errors> getAllErrors()
 	{
 		return eR.findAll(); 
 	}
 	
+	/**
+	 * Get an bug by id
+	 * @param id
+	 * @return a bug (Errors)
+	 */
 	public Errors getErrorByID(int id)
 	{
 		return eR.findById(id).get();
 	}
 	
+	/**
+	 * 
+	 * @param un
+	 * @return
+	 */
 	public List<Errors> getAllErrorsByUserName(String un)
 	{
 		
