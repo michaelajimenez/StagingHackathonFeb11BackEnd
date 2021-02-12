@@ -62,11 +62,21 @@ public class ErrorService
 		return eR.findAll(); 
 	}
 	
+	/**
+	 * Get an bug by id
+	 * @param id
+	 * @return a bug (Errors)
+	 */
 	public Errors getErrorByID(int id)
 	{
 		return eR.findById(id).get();
 	}
 	
+	/**
+	 * 
+	 * @param un
+	 * @return
+	 */
 	public List<Errors> getAllErrorsByUserName(String un)
 	{
 		
